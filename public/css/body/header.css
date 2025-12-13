@@ -1,0 +1,107 @@
+html {
+    font-size: 17px;
+}
+body {
+    background-color: var(--bg-primary);
+    font-family: "Roboto Condensed", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.site-header {
+    width: 100%;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    z-index: 1000;
+}
+.header-container {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo a {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+.main-nav a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    position: relative;
+    transition: color 0.3s ease;
+}
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent);
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s ease;
+}
+.main-nav a:hover {
+    color: var(--text-primary);
+}
+.main-nav a:hover::after {
+    width: 100%;
+}
+.header-cta .btn-primary {
+    padding: 0.55rem 1.4rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    text-decoration: none;
+    background-color: var(--accent);
+    color: black;
+    transition: all 0.3s ease;
+    border: none;
+}
+.header-cta .btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block;
+    }
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+        display: none;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 1rem;
+        text-align: center;
+    }
+    .header-cta {
+        display: none;
+    }
+    .main-nav.active {
+        display: block;
+    }
+    .header-container {padding: 1.0rem 0.5rem;}
+}
